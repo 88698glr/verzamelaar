@@ -1,0 +1,135 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+/* navbar */
+nav {
+    position: relative;
+    z-index: 1;
+    top: 0;
+    left: 0;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    background-color: #2D3142;
+    padding: 1em;
+    font-family: 'Roboto', sans-serif;
+}
+
+i {
+    color: white;
+}
+
+nav a {
+    text-decoration: none;
+    text-transform: capitalize;
+    color: #eae8ff;
+}
+
+#logo {
+    font-size: 1.2em;
+    font-weight: 600;
+}
+
+input[type="checkbox"] {
+    appearance: none;
+    -webkit-appearance: none;
+}
+
+.hamburger {
+    display: none;
+    cursor: pointer;
+}
+
+.navbar {
+    list-style: none;
+    display: flex;
+    gap: 1em;
+    z-index: 1;
+}
+
+.navbar a {
+    padding: 0.5em;
+}
+
+.navbar a:hover {
+    background-color: #ADACB5;
+    border-radius: 0.5em;
+}
+
+.active {
+    border-bottom: 2px solid #ffffff;
+}
+
+.btn {
+    cursor: pointer;
+}
+
+.search-bar {
+    display: flex;
+    align-items: center;
+}
+
+#search-input {
+    padding: 0.5em;
+    border: 1px solid #ccc;
+    border-radius: 4px;
+    margin-right: 5px;
+    flex-grow: 1;
+}
+
+#search-button {
+    background-color: #2D3142;
+    color: white;
+    border: none;
+    border-radius: 4px;
+    cursor: pointer;
+}
+
+#search-button:hover {
+    background-color: #ADACB5;
+}
+
+
+@media screen and (max-width: 600px) {
+    .hamburger {
+        display: block;
+    }
+
+    .navbar {
+        font-size: 1.2em;
+        position: absolute;
+        left: -100%;
+        flex-direction: column;
+        align-items: center;
+        justify-content: center;
+        background-color: #2D3142;
+        gap: 2em;
+        top: 70px;
+        width: 100%;
+        height: calc(101.1vh - 60px);
+        transition: 0.5s;
+    }
+
+    input[type="checkbox"]:checked ~ .navbar {
+        left: 0;
+    } 
+
+    .navbar a:hover {
+        background-color: #ADACB5;
+    }
+
+    .search-bar {
+        margin-top: 10px; 
+    }
+
+    #search-input {
+        width: 70%;
+    }
+
+    #search-button {
+        width: 30%; 
+    }
+}
