@@ -1,0 +1,246 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: 'Roboto', sans-serif;
+}
+
+/* sidebar */
+.container {
+    display: flex;
+    max-width: 1200px;
+    margin-left: 0px auto;
+    padding: 20px;
+}
+
+.sidebar {
+    flex: 0 0 auto;
+    background-color: #333;
+    color: #fff;
+    padding: 20px;
+    width: 200px;
+    top: 0;
+    left: 0;
+    overflow-x: hidden;
+    padding-top: 20px;
+}
+
+.sidebar a, .dropdown-btn {
+    padding: 6px 8px 6px 16px;
+    text-decoration: none;
+    font-size: 20px;
+    color: #818181;
+    display: block;
+    border: none;
+    background: none;
+    width: 100%;
+    text-align: left;
+    cursor: pointer;
+    outline: none;
+}
+
+.sidebar a:hover, .dropdown-btn:hover {
+    color: #f1f1f1;
+}
+
+.dropdown-container {
+    display: none;
+    background-color: #262626;
+    padding-left: 8px;
+}
+
+.fa-caret-down {
+    float: right;
+    padding-right: 8px;
+}
+  
+
+.sidebar h2 {
+    font-size: 1.5rem;
+    margin-bottom: 20px;
+}
+
+.sidebar ul {
+    list-style-type: none;
+    padding: 0;
+}
+
+.sidebar li {
+    margin-bottom: 10px;
+}
+
+.sidebar a {
+    text-decoration: none;
+    color: #fff;
+    font-weight: bold;
+}
+
+.submenu {
+    display: none;
+}
+
+li:hover .submenu {
+    display: block;
+}
+
+.sidebar label, .sidebar select, .sidebar input {
+    width: 100%;
+    display: block;
+    margin-bottom: 10px;
+}
+
+/* sidebar for mobile */
+.sidebar-mobile {
+    display: none;
+}
+
+.filter-button {
+    display: block;
+    background-color: #2D3142;
+    color: white;
+    padding: 10px 20px;
+    text-align: center;
+    cursor: pointer;
+    font-size: 1.2em;
+    margin-top: -1em;
+}
+
+.filter-form {
+    display: none;
+    background-color: #fff;
+    padding: 1em;
+    position: absolute;
+    top: 60px;
+    left: 0;
+    width: 100%;
+    box-shadow: 0px 2px 5px rgba(0, 0, 0, 0.1);
+    z-index: 2;
+}
+
+#filter-checkbox:checked + .filter-button + .filter-form {
+    display: block;
+}
+
+@media screen and (max-width: 768px) {
+    .container {
+        flex-direction: column; 
+    }
+
+    .sidebar {
+        display: none; 
+        position: static;
+        background-color: transparent;
+    }
+
+    .sidebar-mobile {
+        display: block; 
+        text-align: center;
+        margin: 1rem;
+    }
+
+    .filter-button {
+        display: block;
+        background-color: #2D3142;
+        color: white;
+        padding: 10px 20px;
+        text-align: center;
+        cursor: pointer;
+        font-size: 1.2em;
+    }
+
+    .filter-form {
+        background-color: #fff;
+        padding: 1rem;
+        position: static; 
+        width: 100%;
+        box-shadow: 0px 2px 5px rgba(0, 0, 0, 0.1);
+        z-index: 2;
+    }
+
+    #filter-checkbox:checked + .filter-button + .filter-form {
+        display: block;
+        position: relative;
+        top: 0;
+        left: 0;
+        width: 100%;
+    }
+}
+
+
+/* shoes */
+.main-content {
+    padding: 2rem;
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+}
+
+.shoes {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-between;
+}
+
+.shoe {
+    background-color: #fff;
+    border: 1px solid #e0e0e0;
+    border-radius: 5px;
+    margin: 1rem 0;
+    padding: 1rem;
+    width: calc(33.33% - 1rem);
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+    transition: transform 0.2s;
+}
+
+.shoe {
+    text-decoration: none;
+    cursor: pointer;
+}
+
+.shoe:hover {
+    transform: translateY(-5px);
+}
+
+.img-con {
+    text-align: center;
+    padding: 1rem;
+}
+
+.img-con img {
+    max-width: 100%;
+    height: auto;
+}
+
+.info {
+    text-align: center;
+    margin-top: 1rem;
+}
+
+.info h3 {
+    font-size: 1.2rem;
+    color: #333;
+    margin-bottom: 0.5rem;
+}
+
+.info p {
+    font-size: 1rem;
+    color: #666;
+}
+
+@media screen and (min-width: 768px) {
+    .shoe {
+        width: calc(33.33% - 2rem); 
+        margin-right: 1rem;
+    }
+
+    .shoe:last-child {
+        margin-right: 0;
+    }
+}
+
+
+
+
+
+
+

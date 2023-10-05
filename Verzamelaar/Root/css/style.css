@@ -5,6 +5,10 @@
     font-family: 'Roboto', sans-serif;
 }
 
+body {
+    background-color: #D8D5D5;
+}
+
 /* background vid */
 .video-container {
     position: relative;
@@ -57,16 +61,6 @@
     flex-wrap: wrap;
     justify-content: space-around;
     padding: 20px;
-    background-color: rgba(255, 255, 255, 0.8);
-}
-
-.card {
-    flex: 0 0 calc(33.33% - 20px);
-    margin: 10px;
-    padding: 20px;
-    border: 1px solid #ccc;
-    text-align: center;
-    background-color: #fff;
 }
 
 .card img {
@@ -84,8 +78,33 @@
     margin: 5px 0;
 }
 
+.card-link {
+    display: block; 
+    text-decoration: none;
+    color: inherit;
+    cursor: pointer;
+    height: 100%; 
+    flex: 0 0 calc(33.33% - 20px);
+    margin: 10px;
+    padding: 30px;
+    border: 1px solid #ccc;
+    text-align: center;
+    background-color: #fff;
+    height: auto;
+}
+
+.shoetitel {
+    color: #2D3142;
+}
+
 @media screen and (max-width: 768px) {
+    .product-card {
+        flex-direction: column;
+        align-items: center;
+    }
+    
     .card {
-        flex: 0 0 calc(50% - 20px);
+        flex: 0 0 calc(100% - 20px);
+        width: 100%;
     }
 }

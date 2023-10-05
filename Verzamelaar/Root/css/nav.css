@@ -6,7 +6,7 @@
 
 /* navbar */
 nav {
-    position: relative;
+    position: sticky;
     z-index: 1;
     top: 0;
     left: 0;
@@ -72,6 +72,13 @@ input[type="checkbox"] {
     align-items: center;
 }
 
+nav .logo-con {
+    display: flex;
+    flex-direction: row;
+    gap: 10px;
+    align-items: center;
+}
+
 #search-input {
     padding: 0.5em;
     border: 1px solid #ccc;
@@ -87,11 +94,6 @@ input[type="checkbox"] {
     border-radius: 4px;
     cursor: pointer;
 }
-
-#search-button:hover {
-    background-color: #ADACB5;
-}
-
 
 @media screen and (max-width: 600px) {
     .hamburger {
@@ -109,7 +111,7 @@ input[type="checkbox"] {
         gap: 2em;
         top: 70px;
         width: 100%;
-        height: calc(101.1vh - 60px);
+        height: calc(110vh - 60px);
         transition: 0.5s;
     }
 
@@ -126,10 +128,31 @@ input[type="checkbox"] {
     }
 
     #search-input {
-        width: 70%;
+        width: 100%;
     }
 
     #search-button {
-        width: 30%; 
+        width: 10%; 
     }
+
+    .navbar {
+        display: none; 
+        flex-direction: column; 
+        align-items: center;
+        background-color: #333;
+        position: absolute;
+        width: 100%;
+        z-index: 1;
+        top: 60px; 
+    }
+
+    .navbar.active {
+        display: flex;
+    }
+
+    .navbar .btn {
+        display: block;
+        margin: 10px 0;
+    }
+    
 }
