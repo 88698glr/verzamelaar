@@ -1,0 +1,20 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: 'Roboto', sans-serif;
+}
+
+/* cart */
+body {
+    background-color: #D8D5D5;
+}
+
+.error {
+    display: flex;
+    justify-content: center;
+    align-items: center; 
+    height: 100vh;
+    flex-direction: column;
+    text-align: center;
+}

@@ -1,4 +1,16 @@
 <?php
+session_start();
+
+if (isset($_SESSION['email'])) {
+    if ($_SESSION['email'] == "admin@gmail.com") {
+        $dashboardLink = '<li><a href="admin.php">Admin</a></li>';
+    } else {
+        $dashboardLink = '<li><a href="user.php">User</a></li>';
+    }
+} else {
+    $dashboardLink = '<li><a href="login.php">Login</a></li>';
+}
+
 ini_set('display_errors', 1);
 ini_set('display_startup_errors', 1);
 error_reporting(E_ALL);
@@ -25,7 +37,7 @@ $result = $conn->query($sql);
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Home | UrbanKicks</title>
-    <link rel="icon" href="./images/logo.jpg">
+    <link rel="icon" href="../images/logo.jpg">
     <link rel="stylesheet" href="../css/nav.css">
     <link rel="stylesheet" href="../css/style.css">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.2/css/all.min.css" integrity="sha512-z3gLpd7yknf1YoNbCzqRKc4qyor8gaKU1qmn+CShxbuBusANI9QpRohGBreCFkKxLhei6S9CQXFEbbKuqLg0DA==" crossorigin="anonymous" referrerpolicy="no-referrer" />
@@ -54,10 +66,11 @@ $result = $conn->query($sql);
                     <a href="./sneakers.php" class="btn">Sneakers</a>
                 </li>
                 <li>
-                    <a href="#" class="btn">/#/</a>
+                    <a href="./contact.php" class="btn">Contact</a>
                 </li>
+                <?php echo $dashboardLink; ?>
                 <li>
-                    <a href="#" class="btn">/#/</a>
+                    <a href="./cart.php" class="btn"><i class="fa-solid fa-cart-shopping"></i></a>
                 </li>
             </ul>
         </nav>

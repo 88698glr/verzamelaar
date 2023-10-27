@@ -1,4 +1,16 @@
 <?php
+session_start();
+
+if (isset($_SESSION['email'])) {
+    if ($_SESSION['email'] == "admin@gmail.com") {
+        $dashboardLink = '<li><a href="admin.php">Admin</a></li>';
+    } else {
+        $dashboardLink = '<li><a href="user.php">User</a></li>';
+    }
+} else {
+    $dashboardLink = '<li><a href="login.php">Login</a></li>';
+}
+
 ini_set('display_errors', 1);
 ini_set('display_startup_errors', 1);
 error_reporting(E_ALL);
@@ -53,10 +65,11 @@ $result = $conn->query($sql);
                     <a href="sneakers.php" class="btn active">Sneakers</a>
                 </li>
                 <li>
-                    <a href="#" class="btn">/#/</a>
+                    <a href="./contact.php" class="btn">Contact</a>
                 </li>
+                <?php echo $dashboardLink; ?>
                 <li>
-                    <a href="#" class="btn">/#/</a>
+                    <a href="./cart.php" class="btn"><i class="fa-solid fa-cart-shopping"></i></a>
                 </li>
             </ul>
         </nav>
@@ -80,40 +93,55 @@ $result = $conn->query($sql);
                         }
                     ?>
 
-                <div class="thumbnails">
-                    <div class="thumbnail">
-                        <img src="<?php echo $imgshoe1; ?>" class="thumbnail-img">
-                    </div>
-                    <div class="thumbnail">
-                        <img src="<?php echo $imgshoe2; ?>" class="thumbnail-img">
-                    </div>
-                    <div class="thumbnail">
-                        <img src="<?php echo $imgshoe3; ?>" class="thumbnail-img">
-                    </div>
-                </div>
+                    <div class="thumbnails">
+                        <div class="thumbnail">
+                            <img src="<?php echo $imgshoe1; ?>" class="thumbnail-img">
+                        </div>
+                        <div class="thumbnail">
+                            <img src="<?php echo $imgshoe2; ?>" class="thumbnail-img">
+                        </div>
+                        <div class="thumbnail">
+                            <img src="<?php echo $imgshoe3; ?>" class="thumbnail-img">
+                        </div>
+                        </div>
 
-                <div class="slide">
-                    <div class="arrow-buttons">
-                        <button id="prev-button" class="arrow-button">&#10094;</button>
-                        <button id="next-button" class="arrow-button">&#10095;</button>
+                    <div class="slide">
+                        <div class="arrow-buttons">
+                            <button id="prev-button" class="arrow-button">&#10094;</button>
+                            <button id="next-button" class="arrow-button">&#10095;</button>
+                        </div>
+                        <img src="<?php echo $imgshoe1; ?>" class="img" id="main-slide">
                     </div>
-                    <img src="<?php echo $imgshoe1; ?>" class="img" id="main-slide">
-                </div>
+                
 
         <!-- info -->
-                <div class="info">
-                    <?php
-                        echo "<h2>" . $row['name'] . "</h2>";
-                        echo '<p>Geslacht: ' . $row["geslacht"] . '</p>';
-                        echo '<br>';
-                        echo '<br>';
-                        echo '<p>Prijs: €' . $row["prijs"] . '</p>';
-                        echo '<br>';
-                        echo '<p>Maat: ' . $row["maat"] . '</p>';
-                    ?>
-                </div>       
+                    <div class="info">
+                        <?php
+                            echo "<h2>" . $row['name'] . "</h2>";
+                            echo '<p>Geslacht: ' . $row["geslacht"] . '</p>';
+                            echo '<br>';
+                            echo '<br>';
+                            echo '<p>Prijs: €' . $row["prijs"] . '</p>';
+                            echo '<br>';
+                            echo '<p>Maat: ' . $row["maat"] . '</p>';
+                        ?>
+                        <br>
+                        <br>
+                        <a href="./cart.php"><button class="winkelwagen">Winkelwagen</button></a>
+                    </div> 
+                </div>
+    
             </div>
         </div>
+        <br>
+        <br>
+        <div class="beschrijving">
+                <h1>Beschrijving</h1>
+                <br>
+                <?php 
+                    echo '<p>' . $row["beschrijving"] . '</p>';
+                ?>
+        </div>  
 
 
         <script src="../scripts/shoe.js"></script>

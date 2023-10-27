@@ -91,6 +91,11 @@ body {
     text-align: center;
     background-color: #fff;
     height: auto;
+    transition: .5s all;
+}
+
+.card-link:hover {
+    transform: translateY(-10px);
 }
 
 .shoetitel {

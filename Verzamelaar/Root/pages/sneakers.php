@@ -1,4 +1,16 @@
 <?php
+session_start();
+
+if (isset($_SESSION['email'])) {
+    if ($_SESSION['email'] == "admin@gmail.com") {
+        $dashboardLink = '<li><a href="admin.php">Admin</a></li>';
+    } else {
+        $dashboardLink = '<li><a href="user.php">User</a></li>';
+    }
+} else {
+    $dashboardLink = '<li><a href="login.php">Login</a></li>';
+}
+
 ini_set('display_errors', 0);
 ini_set('display_startup_errors', 0);
 error_reporting(E_ALL);
@@ -97,10 +109,11 @@ $result = $conn->query($sql);
                     <a href="sneakers.php" class="btn active">Sneakers</a>
                 </li>
                 <li>
-                    <a href="#" class="btn">/#/</a>
+                    <a href="./contact.php" class="btn">Contact</a>
                 </li>
+                <?php echo $dashboardLink; ?>
                 <li>
-                    <a href="#" class="btn">/#/</a>
+                    <a href="./cart.php" class="btn"><i class="fa-solid fa-cart-shopping"></i></a>
                 </li>
             </ul>
         </nav>
@@ -111,7 +124,6 @@ $result = $conn->query($sql);
             <input type="checkbox" id="filter-checkbox">
             <label class="filter-button" for="filter-checkbox"><i class="fa-solid fa-sliders"></i> Filters</label>
 
-            <!-- Verplaats het filterformulier van de sidebar naar de navbar -->
             <form method="POST" action="sneakers.php" class="filter-form">
                 <h2>Zoekopties</h2>
                 <label for="geslacht">Geslacht:</label>
@@ -135,13 +147,15 @@ $result = $conn->query($sql);
                     <option value="Nike">Nike</option>
                     <option value="Adidas">Adidas</option>
                     <option value="Jordans">Jordans</option>
+                    <option value="New Balance">New Balance</option>
                 </select>
                 <input type="submit" name="filter_submit" value="Filteren">
                 <input type="submit" name="reset_filters" value="Filters resetten">
             </form>
         </div>
 
-        <!-- sidebar for larger screens -->
+        <!-- sidebar -->
+        <main>
         <div class="container">
             <div class="sidebar">
                 <form method="POST" action="sneakers.php">
@@ -167,6 +181,7 @@ $result = $conn->query($sql);
                         <option value="Nike">Nike</option>
                         <option value="Adidas">Adidas</option>
                         <option value="Jordans">Jordans</option>
+                        <option value="New Balance">New Balance</option>
                     </select>
                     <input type="submit" name="filter_submit" value="Filteren">
                 </form>
@@ -174,33 +189,31 @@ $result = $conn->query($sql);
                     <input type="submit" name="reset_filters" value="Filters resetten">
                 </form>
             </div>
+        </div>
 
-        <!-- shoes -->
+        <!-- shoenen -->
         <div class="main-content">
-            <div class="wrapper">
-                <div class="shoes">
-                    <?php
+            <?php
                     if ($result && $result->num_rows > 0) {
                         while ($row = $result->fetch_assoc()) {
-                            echo "<a href='shoe.php?id=" . $row['id'] . "' class='shoe'>
-                                    <div class='img-con'>
-                                        <img src='" . $row['img1'] . "' alt=''>
-                                    </div>
-                                    <div class='info'>
-                                        <h3>" . $row['name'] . "</h3>
-                                        <p>Maat: " . $row['maat'] . "</p>
-                                        <p>Prijs: €" . $row['prijs'] . "</p>
-                                    </div>
-                                </a>";
+                            echo "<div class='card'>
+                            <a href='shoe.php?id=" . $row['id'] . "' class='shoe'>
+                            <div class='img-con'>
+                                <img src='" . $row['img1'] . "' alt=''>
+                            </div>
+                            <div class='info'>
+                                <h3>" . $row['name'] . "</h3>
+                                <p>Maat: " . $row['maat'] . "</p>
+                                <p>Prijs: €" . $row['prijs'] . "</p>
+                            </div>
+                        </a>
+                            </div>";
                         }
                     } else {
                         echo "Geen resultaten gevonden.";
                     }
-                    ?>
-                </div>
-            </div>
+                ?>
         </div>
-
-    </div>
+        </main>      
 </body>
 </html>
