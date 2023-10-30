@@ -1,4 +1,6 @@
 <?php
+@include 'config.php';
+
 session_start();
 
 if (isset($_SESSION['email'])) {
@@ -14,13 +16,6 @@ if (isset($_SESSION['email'])) {
 ini_set('display_errors', 0);
 ini_set('display_startup_errors', 0);
 error_reporting(E_ALL);
-
-$servername = "localhost";
-$username = "root";
-$password = "";
-$dbname = "beroeps-lj2";
-
-$conn = new mysqli($servername, $username, $password, $dbname);
 
 if ($conn->connect_error) {
     die("Fout bij de verbinding met de database: " . $conn->connect_error);
@@ -91,10 +86,6 @@ $result = $conn->query($sql);
         <nav>
             <div class="logo-con">
                 <a href="./index.php" id="logo">UrbanKicks</a>
-                <div class="search-bar">
-                    <input type="text" id="search-input" placeholder="Zoeken...">
-                    <button id="search-button"><i class="fa-solid fa-search"></i></button>
-                </div>
             </div>
             <input type="checkbox" id="hamburger">
             <label class="hamburger" for="hamburger">
@@ -119,7 +110,6 @@ $result = $conn->query($sql);
         </nav>
 
         <!-- sidebar -->
-        <!-- Voeg dit toe voor het filtermenu -->
         <div class="sidebar-mobile">
             <input type="checkbox" id="filter-checkbox">
             <label class="filter-button" for="filter-checkbox"><i class="fa-solid fa-sliders"></i> Filters</label>

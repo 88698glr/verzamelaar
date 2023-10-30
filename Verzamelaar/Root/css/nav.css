@@ -109,7 +109,7 @@ nav .logo-con {
         align-items: center;
         justify-content: center;
         background-color: #2D3142;
-        top: 70px;
+        top: 40px;
         width: 100%;
         height: calc(110vh - 60px);
         transition: 0.5s;
@@ -124,20 +124,8 @@ nav .logo-con {
         background-color: #ADACB5;
     }
 
-    .search-bar {
-        margin-top: 10px; 
-    }
-
-    #search-input {
-        width: 100%;
-    }
-
-    #search-button {
-        width: 10%; 
-    }
-
     .navbar.active {
-        display: flex;
+        display: block;
     }
 
     .navbar .btn {

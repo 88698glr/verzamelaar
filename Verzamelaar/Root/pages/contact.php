@@ -28,10 +28,6 @@
         <nav>
             <div class="logo-con">
                 <a href="./index.php" id="logo">UrbanKicks</a>
-                <div class="search-bar">
-                    <input type="text" id="search-input" placeholder="Zoeken...">
-                    <button id="search-button"><i class="fa-solid fa-search"></i></button>
-                </div>
             </div>
             <input type="checkbox" id="hamburger">
             <label class="hamburger" for="hamburger">

@@ -1,16 +1,11 @@
 <?php
+@include 'config.php';
+
 session_start();
 
 ini_set('display_errors', 1);
 ini_set('display_startup_errors', 1);
 error_reporting(E_ALL);
-
-$servername = "localhost";
-$username = "root";
-$password = "";
-$dbname = "beroeps-lj2";
-
-$conn = new mysqli($servername, $username, $password, $dbname);
 
 $sql = "SELECT * FROM verzamelaar";
 $result = $conn->query($sql);
@@ -114,8 +109,10 @@ if(isset($_SESSION['email'])) {
     
             <input type="submit" value="Voeg schoen toe">
             </form>
-            <a href="logout.php" class="Logout">LOGOUT</a>
-            <a href="index.php" class="Website">Terug naar Website</a>
+            <div class="links">
+                <a href="logout.php" class="Logout">LOGOUT</a>
+                <a href="index.php" class="Website">Terug naar Website</a>
+            </div>
         </section>
     </div>
 </body>

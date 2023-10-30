@@ -1,15 +1,9 @@
 <?php
+@include 'config.php';
 
 ini_set('display_errors', 1);
 ini_set('display_startup_errors', 1);
 error_reporting(E_ALL);
-
-$servername = "localhost";
-$username = "root";
-$password = "";
-$dbname = "beroeps-lj2";
-
-$conn = new mysqli($servername, $username, $password, $dbname);
 
 if ($conn->connect_error) {
     die("Fout bij de verbinding met de database: " . $conn->connect_error);
@@ -53,10 +47,11 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
             <input type="email" name="email" required>
             <button type="submit">Registreren</button>
         </form>
-    </div>
-    <div class="links">
-        <p><a href="login.php">Inloggen</a></p>
-        <p><a href="index.php">Terug naar Website</a></p>
+    
+        <div class="links">
+            <p><a href="login.php" class="inlog">Inloggen</a></p>
+            <p><a href="index.php" class="website">Terug naar Website</a></p>
+        </div>
     </div>
 </body>
 </html>

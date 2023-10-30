@@ -1,16 +1,11 @@
 <?php
+@include 'config.php';
+
 session_start();
 
 ini_set('display_errors', 1);
 ini_set('display_startup_errors', 1);
 error_reporting(E_ALL);
- 
-$servername = "localhost";
-$username = "root";
-$password = "";
-$dbname = "beroeps-lj2";
- 
-$conn = new mysqli($servername, $username, $password, $dbname);
  
 if ($conn->connect_error) {
   die("Connection failed: " . $conn->connect_error);
@@ -66,10 +61,11 @@ $conn->close();
             <input type="password" name="password" required>
             <button type="submit">Inloggen</button>
         </form>
-    </div>
-    <div class="links">
-        <p>Nog geen account? <a href="register.php">Registreren</a></p>
-        <a href="index.php">Terug naar Website</a>
+
+        <div class="links">
+            <p>Nog geen account? <a href="register.php">Registreren</a></p>
+            <a href="index.php">Terug naar Website</a>
+        </div>
     </div>
 </body>
 </html>

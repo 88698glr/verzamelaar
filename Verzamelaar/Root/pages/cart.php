@@ -29,10 +29,6 @@ if (isset($_SESSION['email'])) {
         <nav>
             <div class="logo-con">
                 <a href="./index.php" id="logo">UrbanKicks</a>
-                <div class="search-bar">
-                    <input type="text" id="search-input" placeholder="Zoeken...">
-                    <button id="search-button"><i class="fa-solid fa-search"></i></button>
-                </div>
             </div>
             <input type="checkbox" id="hamburger">
             <label class="hamburger" for="hamburger">
@@ -58,8 +54,8 @@ if (isset($_SESSION['email'])) {
 
         <!-- cart -->
         <div class="error">
-            <h1>404 ERROR</h1>
-            <p>This page cannot be found</p>
+            <h1>De pagina is in aanmaak</h1>
+            <p>Sorry voor de ongemak</p>
         </div>
 </body>
 </html>
